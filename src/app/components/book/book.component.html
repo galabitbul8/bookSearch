@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <div [style.display]="'flex'">
+        <div [style.flex]="'6'">
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>Name: {{book.volumeInfo.title}}</mat-card-title>
+                <mat-card-subtitle>{{book.volumeInfo.authors != undefined && book.volumeInfo.authors.length > 1 ? "Authors:": "Author:"}} {{book.volumeInfo.authors ? book.volumeInfo.authors:'UNKNOWN'}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  {{book.volumeInfo.description}}
+                </p>
+              </mat-card-content>
+        </div>
+        <div [style.flex]="'1'">
+            <img *ngIf="book.volumeInfo.imageLinks?.thumbnail" [src]="book.volumeInfo.imageLinks.thumbnail" alt="Photo of the book">
+        </div>
+    </div>
+  </mat-card>

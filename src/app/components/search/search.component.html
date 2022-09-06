@@ -1,0 +1,18 @@
+<div class="center">
+    <h1>Welcome {{username}}</h1>
+    <!-- Here will be the search input -->
+    <mat-form-field appearance="fill" [style.width]="'80%'" >
+        <mat-label>Book search</mat-label>
+        <input matInput placeholder="Enter a book name" (keyup)="searchBook($event.target)">
+    </mat-form-field>
+    <!-- Here will be the table with the results -->
+    <div *ngIf="books$"  [style.width]="'80%'">
+        <book *ngFor="let book of books$ | async" [book]="book" (click)="openDialog(book)" mat-button ></book>
+        <mat-paginator *ngIf="length > 0" [length]="length"
+                [pageSize]="10"
+                [pageSizeOptions]="[2, 5, 10]"
+                aria-label="Select page">
+        </mat-paginator>
+    </div>
+    
+</div>
