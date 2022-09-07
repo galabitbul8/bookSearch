@@ -1,7 +1,7 @@
 <div *ngIf="data.book" >
     <h1>{{data.book.volumeInfo.title}}</h1>
     <h3>{{data.book.volumeInfo.authors != undefined && data.book.volumeInfo.authors.length > 1 ? "Authors:": "Author:"}} {{data.book.volumeInfo.authors ? data.book.volumeInfo.authors:'UNKNOWN'}}</h3>
-    <p><b>Description:</b> {{data.book.volumeInfo.description}}</p>
+    <p *ngIf="data.book.volumeInfo.description"><b>Description:</b> {{data.book.volumeInfo.description}}</p>
     <button mat-raised-button [style.background]="isToAdd ? 'white':'#cf2f2f'"  [style.color]="isToAdd ? 'black':'white'" (click)="changeWishlist(data.book)" >{{isToAdd ? 'Add to' : 'Delete from'}} wishlist</button>
 </div>
 

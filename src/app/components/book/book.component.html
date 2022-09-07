@@ -3,7 +3,7 @@
         <div [style.flex]="'6'">
             <mat-card-header>
                 <div mat-card-avatar class="header-image"></div>
-                <mat-card-title>Name: {{book.volumeInfo.title}}</mat-card-title>
+                <mat-card-title>{{book.volumeInfo.title}}</mat-card-title>
                 <mat-card-subtitle>{{book.volumeInfo.authors != undefined && book.volumeInfo.authors.length > 1 ? "Authors:": "Author:"}} {{book.volumeInfo.authors ? book.volumeInfo.authors:'UNKNOWN'}}</mat-card-subtitle>
               </mat-card-header>
               <mat-card-content>

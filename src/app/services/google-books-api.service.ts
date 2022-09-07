@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Book } from '../models/book';
 
@@ -16,6 +16,6 @@ export class GoogleBooksApiService {
   }
 
   getDetailsById(id: string):Observable<Book>{
-    return this.http.get<{item:Book}>(`${this.api_path}/${id}`).pipe(map(book => book.item));
+    return this.http.get<Book>(`${this.api_path}/${id}`);
   }
 }

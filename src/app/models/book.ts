@@ -4,13 +4,13 @@ export type Book ={
       title: string;
       authors: string[];
       publisher: string;
-      publishDate: string;
+      publishedDate: string;
       description: string;
-      averageRating: number;
-      ratingsCount: number;
+      previewLink:string;
       imageLinks: {
         thumbnail: string;
         smallThumbnail: string;
       };
     };
 }
+

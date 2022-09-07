@@ -13,3 +13,9 @@ img{
     width: 130px;
     height: 180px;
 }
+.cdk-global-overlay-wrapper .cdk-overlay-pane{
+    width: 100%;
+} 
+h1{
+    align-self: center;
+}

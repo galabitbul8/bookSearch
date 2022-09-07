@@ -7,11 +7,14 @@
     </mat-form-field>
     <!-- Here will be the table with the results -->
     <div *ngIf="books$"  [style.width]="'80%'">
-        <book *ngFor="let book of books$ | async" [book]="book" (click)="openDialog(book)" mat-button ></book>
-        <mat-paginator *ngIf="length > 0" [length]="length"
+        <book *ngFor="let book of pagingBook$ | async" [book]="book" (click)="openDialog(book)" mat-button ></book>
+        <mat-paginator *ngIf="length > 0"
+                #paginator 
+                [length]="length"
                 [pageSize]="10"
                 [pageSizeOptions]="[2, 5, 10]"
-                aria-label="Select page">
+                aria-label="Select page"
+                (page)="pageEvent = onPageChange($event)">
         </mat-paginator>
     </div>
     

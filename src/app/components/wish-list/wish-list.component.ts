@@ -16,6 +16,7 @@ export class WishListComponent implements OnInit {
 
   wishlist$:Observable<Book[]> = new Observable;
 
+  
   ngOnInit(): void {
     const username = localStorage.getItem('bookApp-username');
     if(!username){
@@ -25,6 +26,9 @@ export class WishListComponent implements OnInit {
   }
   
   openDialog(book:Book) {
-    this.dialogService.openDialog(book);
+    const dialogRef =this.dialogService.openDialog(book);
+    dialogRef.afterClosed().subscribe(()=>{
+      this.wishlist$ = this.localStorageService.wishlist$;
+    });
   }
 }
