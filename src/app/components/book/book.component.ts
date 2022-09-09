@@ -7,7 +7,7 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  @Input() book!:Book;
+  @Input() book!: Book;
 
   constructor() { }
 

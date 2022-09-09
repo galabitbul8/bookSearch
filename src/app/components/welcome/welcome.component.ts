@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -10,21 +10,21 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class WelcomeComponent implements OnInit {
   formGroup!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      'username':[null,[Validators.required]]
+      'username': [null, [Validators.required]]
     })
   }
 
-  getErrorUsername():string{
+  getErrorUsername(): string {
     return this.formGroup.get('username')?.hasError('required') ? 'Field is required' : '';
   }
-  
-  onSubmit(formGroup:FormGroup):void{
+
+  onSubmit(formGroup: FormGroup): void {
     localStorage.clear();
-    localStorage.setItem('bookApp-username',formGroup.get('username')?.value);
+    localStorage.setItem('bookApp-username', formGroup.get('username')?.value);
     this.router.navigate(['/search']);
   }
 }

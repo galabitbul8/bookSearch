@@ -1,5 +1,6 @@
 <div class="center">
-    <h1>Wishlist</h1>
-    <h2 *ngIf="(wishlist$ | async)?.length == 0 ">You didn't add any books yet to your wish-list</h2>
-    <book *ngFor="let book of wishlist$ | async" [book]="book" [style.width]="'80%'" (click)="openDialog(book)" mat-button ></book>
+  <h1>Wishlist</h1>
+  <h2 *ngIf="(wishlist$ | async)?.length == 0 ">You didn't add any books yet to your wish-list</h2>
+  <book *ngFor="let book of wishlist$ | async" [book]="book" [style.width]="'80%'" (click)="openDialog(book)"
+    mat-button></book>
 </div>

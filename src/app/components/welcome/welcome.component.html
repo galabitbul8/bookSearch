@@ -1,14 +1,14 @@
 <div class="center">
-    <h1>Welcome to the book search</h1>
-    <h2>Please enter your username to continue</h2>
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" class="center">
-        <mat-form-field appearance="fill" >
-            <mat-label>Username</mat-label>
-            <input matInput placeholder="Enter your username" formControlName="username">
-            <mat-error *ngIf="!formGroup.controls['username'].valid && formGroup.controls['username'].touched">
-                {{ getErrorUsername() }}
-            </mat-error>
-        </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Continue to book search</button>
-    </form>
+  <h1>Welcome to the book search</h1>
+  <h2>Please enter your username to continue</h2>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" class="center">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Enter your username" formControlName="username">
+      <mat-error *ngIf="!formGroup.controls['username'].valid && formGroup.controls['username'].touched">
+        {{ getErrorUsername() }}
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Continue to book search</button>
+  </form>
 </div>

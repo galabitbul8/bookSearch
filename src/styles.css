@@ -1,21 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .center {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
 }
-img{
-    width: 130px;
-    height: 180px;
+
+img {
+  width: 130px;
+  height: 180px;
+  border: black solid 2px;
 }
-.cdk-global-overlay-wrapper .cdk-overlay-pane{
-    width: 100%;
-} 
-h1{
-    align-self: center;
+
+.cdk-global-overlay-wrapper .cdk-overlay-pane {
+  width: 100%;
+  max-height: 50%;
+}
+
+h1 {
+  align-self: center;
+}
+
+.mat-card-avatar {
+  display: none;
 }

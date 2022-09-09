@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bookSearch';
 
-  isUserIn():boolean{
-    if(window.location.pathname == '/search' || window.location.pathname == '/wishlist'){
+  isUserIn(): boolean {
+    if (window.location.pathname == '/search' || window.location.pathname == '/wishlist') {
       return true;
     }
     return false;

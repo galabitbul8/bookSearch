@@ -1,7 +1,26 @@
-<div *ngIf="data.book" >
-    <h1>{{data.book.volumeInfo.title}}</h1>
-    <h3>{{data.book.volumeInfo.authors != undefined && data.book.volumeInfo.authors.length > 1 ? "Authors:": "Author:"}} {{data.book.volumeInfo.authors ? data.book.volumeInfo.authors:'UNKNOWN'}}</h3>
-    <p *ngIf="data.book.volumeInfo.description"><b>Description:</b> {{data.book.volumeInfo.description}}</p>
-    <button mat-raised-button [style.background]="isToAdd ? 'white':'#cf2f2f'"  [style.color]="isToAdd ? 'black':'white'" (click)="changeWishlist(data.book)" >{{isToAdd ? 'Add to' : 'Delete from'}} wishlist</button>
-</div>
+<div *ngIf="book">
+  <div [style.display]="'flex'">
+    <div [style.flex]="'6'">
+      <h1>{{book.volumeInfo.title}}</h1>
+      <div>
+        <mat-icon *ngFor="let a of fullStarArray">star</mat-icon>
+        <mat-icon *ngFor="let b of halfStarArray">star_half</mat-icon>
+        <mat-icon *ngFor="let c of blankStarArray">star_border</mat-icon>
+      </div>
+      <h3>{{book.volumeInfo.authors != undefined && book.volumeInfo.authors.length > 1 ? "Authors:": "Author:"}}
+        {{book.volumeInfo.authors ? book.volumeInfo.authors:'UNKNOWN'}}</h3>
+      <h4 *ngIf="book.volumeInfo.publisher">Publisher: {{book.volumeInfo.publisher}}</h4>
+      <h4 *ngIf="book.volumeInfo.publishedDate">Publisher Date: {{book.volumeInfo.publishedDate}}</h4>
+      <h4 *ngIf="book.volumeInfo.previewLink">Preview Link: <a [href]="book.volumeInfo.previewLink"
+          target="_blank">Click Here</a> to see more information</h4>
 
+      <p *ngIf="book.volumeInfo.description" [innerHTML]=" '<b>Description: </b>' + book.volumeInfo.description"></p>
+    </div>
+    <div [style.flex]="'1'" [ngSwitch]="book.volumeInfo.imageLinks">
+      <img *ngSwitchCase="undefined" src="assets/image-not-found-icon.svg" alt="Photo of the book">
+      <img *ngSwitchDefault [src]="book.volumeInfo.imageLinks.thumbnail" alt="Photo of the book">
+    </div>
+  </div>
+  <button mat-raised-button [style.background]="isToAdd ? 'white':'#cf2f2f'" [style.color]="isToAdd ? 'black':'white'"
+    (click)="changeWishlist(book)">{{isToAdd ? 'Add to' : 'Delete from'}} wishlist</button>
+</div>
